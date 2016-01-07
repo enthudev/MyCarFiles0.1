@@ -1,16 +1,30 @@
 {
+  "name": "MyCarFiles",
+  "version": "0.0.0",
+  "description": "Easier Javascript Apps with AngularJS",
+  "registry": "npm",
+  "author": "Tom Ashworth",
+  "license": "MIT",
+  "devDependencies": {
+    "gulp": "3.9.0",
+    "gulp-cssmin": "^0.1.7",
+    "gulp-git": "^1.6.1",
+    "gulp-less": "^3.0.5",
+    "gulp-uglify": "^1.5.1",
+    "rimraf": "^2.5.0"
+  },
   "jspm": {
     "directories": {
       "baseURL": "wwwroot"
     },
     "dependencies": {
-      "aurelia-bootstrapper": "npm:aurelia-bootstrapper@^1.0.0-beta.1",
-      "aurelia-framework": "npm:aurelia-framework@^1.0.0-beta.1.0.2"
+      "aurelia-bootstrapper": "^1.0.0-beta.1",
+      "aurelia-framework": "^1.0.0-beta.1.0.2"
     },
     "devDependencies": {
-      "babel": "npm:babel-core@^5.8.24",
-      "babel-runtime": "npm:babel-runtime@^5.8.24",
-      "core-js": "npm:core-js@^1.1.4"
+      "babel": "babel-core@^5.8.24",
+      "babel-runtime": "^5.8.24",
+      "core-js": "^1.1.4"
     }
   }
 }
