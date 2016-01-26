@@ -8,6 +8,7 @@ var gulp = require('gulp'),
     uglify = require("gulp-uglify"),
     git = require("gulp-git"),  
     less = require('gulp-less'),
+    sass = require('gulp-sass'),
     rimraf = require('rimraf'),
     project = require("./project.json");
 
@@ -56,13 +57,13 @@ gulp.task("min", ["min:js", "min:css"]);
 
 ///New tasks
 gulp.task("git:clone", function () {
-    git.clone(libs.bootstrapv3, { args: paths.gitlib + '/bootstrapv3/' }, function (err) {
+    git.clone(libs.bootstrapv3, { args: '--branch v4-dev --single-branch' , cwd: paths.gitlib + '/bootstrapv4/' }, function (err) {
         if (err) throw err;
     });
 });
 
 gulp.task("git:pull", function () {
-    git.pull('origin', 'master', function (err) {
+    git.pull('origin', 'v4-dev', { cwd: paths.gitlib + "/bootstrapv4/bootstrap" }, function (err) {
         if (err) throw err;
     });
 });
@@ -71,4 +72,10 @@ gulp.task('less:bootstrap', function () {
     gulp.src(paths.gitlib + '/bootstrapv3/less/bootstrap.less')
       .pipe(less({ paths: [paths.gitlib + '/bootstrap/less/'] }))
       .pipe(gulp.dest(paths.webroot + 'css/vendor/'));
+});
+
+gulp.task('sass:bootstrap', function() {
+    gulp.src(paths.gitlib + '/bootstrapv4/bootstrap/scss/bootstrap.scss')
+        .pipe(sass().on('error', sass.logError))
+        .pipe(gulp.dest(paths.webroot + 'css/vendor/'));
 });
