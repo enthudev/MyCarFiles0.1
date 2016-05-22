@@ -58,10 +58,10 @@ namespace MyCarFiles2
             app.UseIISPlatformHandler();
             app.UseStaticFiles();
             app.UseMvc();
-            app.Run(async (context) =>
-            {
-                await context.Response.WriteAsync("Hello World!");
-            });
+            //app.Run(async (context) =>
+            //{
+            //    await context.Response.WriteAsync("Hello World!");
+            //});
         }
 
         // Entry point for the application.
